@@ -5,6 +5,7 @@ AverageProfitLoss = 0.00
 GreatestIncrease = {"date": "", "amount": 0}
 GreatestDecrease = {"date": "", "amount": 0}
 LastChange = 0
+ProfitLossAmount = 0.00
 
 
 month = []
@@ -26,7 +27,7 @@ with open(file_path) as csvfile:
     ProfitLoss = csv_header.index('Profit/Losses')
     ProfitLossList = []
     RevenueList = []
-    Revenueavg = 0
+
     # Read each row of data after the header
     for row in csvreader:
         # The total number of months included in the data set
@@ -47,15 +48,10 @@ with open(file_path) as csvfile:
             GreatestDecrease["amount"] = profit
 
     # Calculate changes in profit/loss over entire period, then find average
-        AverageProfitLoss = float(row[ProfitLoss]) - LastChange
-        LastChange = float(row[ProfitLoss])
-
-        ProfitLossList.append(AverageProfitLoss)
-        RevenueList = RevenueList + [LastChange]
-        month = month + (row[Date])
-
-        Revenueavg = sum(RevenueList) / len(RevenueList)
-
+        ProfitChange = profit - LastChange
+        TotalProfitLoss = TotalProfitLoss + ProfitChange
+        AverageProfitLoss = ProfitLossAmount / TotalMonths
+        AverageChange = TotalProfitLoss / (TotalMonths)
 
 # print results
 print("Finacial Analysis")
@@ -69,8 +65,7 @@ print(
     f"Total: {TotalProfitLoss}")
 print(
     f"{ProfitLossList}")
-print(
-    f"Average Change: ${round(mean[ProfitLossList],2),:}")
+print(f"Average Change: {AverageChange}")
 
 # write to a file
 with open(out_file, 'w') as outputFile:
