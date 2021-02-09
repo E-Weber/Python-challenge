@@ -49,9 +49,11 @@ with open(file_path) as csvfile:
 
     # Calculate changes in profit/loss over entire period, then find average
         ProfitChange = profit - LastChange
+        ProfitLossList.append(ProfitChange)
         TotalProfitLoss = TotalProfitLoss + ProfitChange
-        AverageProfitLoss = ProfitLossAmount / TotalMonths
-        AverageChange = TotalProfitLoss / (TotalMonths)
+        LastChange = profit / TotalMonths
+        #AverageProfitLoss = ProfitLossAmount / TotalMonths
+        #AverageChange = TotalProfitLoss / (TotalMonths)
 
 # print results
 print("Finacial Analysis")
@@ -61,9 +63,8 @@ print(
     f"Greatest Increase In Profits: {GreatestIncrease['date']} (${GreatestIncrease['amount']})")
 print(
     f"Greatest Decrease In Profits: {GreatestDecrease['date']} (${GreatestDecrease['amount']})")
-print(
-    f"Total: ${TotalProfitLoss}")
-print(f"Average Change: {AverageChange}")
+print(f"Total: ${int(TotalProfitLoss)}")
+print(f"Average Change: {LastChange}")
 
 # write to a file
 with open(out_file, 'w') as outputFile:
