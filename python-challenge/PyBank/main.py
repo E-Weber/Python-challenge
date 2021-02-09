@@ -52,8 +52,6 @@ with open(file_path) as csvfile:
         ProfitLossList.append(ProfitChange)
         TotalProfitLoss = TotalProfitLoss + ProfitChange
         LastChange = profit / TotalMonths
-        #AverageProfitLoss = ProfitLossAmount / TotalMonths
-        #AverageChange = TotalProfitLoss / (TotalMonths)
 
 # print results
 print("Finacial Analysis")
@@ -70,8 +68,9 @@ print(f"Average Change: {LastChange}")
 with open(out_file, 'w') as outputFile:
     outputFile.write("Financial Analysis")
     outputFile.write("-------------")
-    outputFile.write(f"Total Months: {TotalMonths}")
+    outputFile.write("Total Months: {TotalMonths}")
     outputFile.write("Total:{TotalProfitLoss}")
+    outputFile.write("Average Change: {LastChange}")
 #  Results Below
 #  ----------------------------
 #  Total Months: 86
