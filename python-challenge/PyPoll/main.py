@@ -20,7 +20,7 @@ with open(csvpath) as csvfile:
 
 # A complete list of candidates who received votes
         candList.append(str(row[candidate]))
-        unique_candList = list(set(candList))
+    unique_candList = list(set(candList))
 
 # The total number of votes each candidate won
     votes1 = unique_candList[0]
