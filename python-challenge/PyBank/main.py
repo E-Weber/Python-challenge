@@ -2,10 +2,11 @@ import csv
 TotalMonths = 0
 TotalProfitLoss = 0.00
 AverageProfitLoss = 0.00
-# GreatestIncrease = {"date": "", "amount": 0}
-#  GreatestDecrease = {"date": "", "amount": 0}
+GreatestIncrease = {"date": "", "amount": 0}
+GreatestDecrease = {"date": "", "amount": 0}
 
 file_path = "./Resources/budget_data.csv"
+out_file = "./Analysis/output.txt"
 
 with open(file_path) as csvfile:
     # CSV reader specifies delimiter and variable that holds contents
@@ -20,27 +21,31 @@ with open(file_path) as csvfile:
         # The total number of months included in the data set
         TotalMonths = TotalMonths + 1
         date = row[0]
-        profit = float((row)[1])
-
-        # if (profit > GreatestIncrease["amount"]):
-        #   GreatestIncrease["date"]=date
-        #  GreatestIncrease["amount"]=profit
-# The greatest decrease in losses(date and amount) over the entire period
-        # if (profit < GreatestDecrease["amount"]):
-        #   GreatestDecrease["date"]=date
-        #  GreatestDecrease["amount"]=profit
+        profit = float(row[1])
+    # The greatest increase in losses (date and amount) over the entire period
+        if (profit > GreatestIncrease["amount"]):
+            GreatestIncrease["date"] = date
+            GreatestIncrease["amount"] = profit
+    # The greatest decrease in losses(date and amount) over the entire period
+        if (profit < GreatestDecrease["amount"]):
+            GreatestDecrease["date"] = date
+            GreatestDecrease["amount"] = profit
 
 # print results
 print("Finacial Analysis")
 print("-------------")
 print(f"Total Months: {TotalMonths}")
-print(f"Greatest Increase In Profits: {GreatestIncrease['date']} ${GreatestIncrease['amount']})
+print(
+    f"Greatest Increase In Profits: {GreatestIncrease['date']} (${GreatestIncrease['amount']}")
+print(
+    f"Greatest Decrease In Profits: {GreatestDecrease['date']} (${GreatestDecrease['amount']}")
 
 
 # write to a file
-# with open(file_path, 'w') as outputFile:
-#   outputFile.write("Financial Analysis")
-
+with open(out_file, 'w') as outputFile:
+    outputFile.write("Financial Analysis")
+    outputFile.write("-------------")
+    outputFile.write(f"Total Months: {TotalMonths}")
 
 #  Results Below
 #  ----------------------------
