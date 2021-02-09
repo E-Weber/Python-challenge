@@ -28,7 +28,7 @@ with open(csvpath) as csvfile:
 # The winner of the election based on popular vote.
 
 # RESULTS
-print("Total Votes: {TotalVotes}")
+print(f"Total Votes: {TotalVotes}")
 # -------------------------
 # Total Votes: 3521001
 # -------------------------
