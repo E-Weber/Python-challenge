@@ -62,9 +62,7 @@ print(
 print(
     f"Greatest Decrease In Profits: {GreatestDecrease['date']} (${GreatestDecrease['amount']})")
 print(
-    f"Total: {TotalProfitLoss}")
-print(
-    f"{ProfitLossList}")
+    f"Total: ${TotalProfitLoss}")
 print(f"Average Change: {AverageChange}")
 
 # write to a file
