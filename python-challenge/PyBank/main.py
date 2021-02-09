@@ -37,16 +37,7 @@ with open(file_path) as csvfile:
     # Net total Amount of profit/loss over entire period
         TotalProfitLoss = TotalProfitLoss + int(row[ProfitLoss])
 
-    # Calculate changes in profit/loss over entire period, then find average
-        AverageProfitLoss = float(row[ProfitLoss]) - LastChange
-        LastChange = float(row[ProfitLoss])
-
-    for rows in csvreader:
-        ProfitLossList.append(AverageProfitLoss)
-        RevenueList = RevenueList + [LastChange]
-        month = month + (row[Date])
-
-    # The greatest increase in losses (date and amount) over the entire period
+        # The greatest increase in losses (date and amount) over the entire period
         if (profit > GreatestIncrease["amount"]):
             GreatestIncrease["date"] = date
             GreatestIncrease["amount"] = profit
@@ -55,23 +46,31 @@ with open(file_path) as csvfile:
             GreatestDecrease["date"] = date
             GreatestDecrease["amount"] = profit
 
-    #Revenueavg = sum(RevenueList) / len(RevenueList)
+    # Calculate changes in profit/loss over entire period, then find average
+        AverageProfitLoss = float(row[ProfitLoss]) - LastChange
+        LastChange = float(row[ProfitLoss])
+
+        ProfitLossList.append(AverageProfitLoss)
+        RevenueList = RevenueList + [LastChange]
+        month = month + (row[Date])
+
+        Revenueavg = sum(RevenueList) / len(RevenueList)
 
 
 # print results
-print(f"Finacial Analysis")
-print(f"-------------")
+print("Finacial Analysis")
+print("-------------")
 print(f"Total Months: {TotalMonths}")
 print(
-    f"Greatest Increase In Profits: {GreatestIncrease['date']} ${GreatestIncrease['amount']}")
+    f"Greatest Increase In Profits: {GreatestIncrease['date']} (${GreatestIncrease['amount']})")
 print(
-    f"Greatest Decrease In Profits: {GreatestDecrease['date']} ${GreatestDecrease['amount']}")
+    f"Greatest Decrease In Profits: {GreatestDecrease['date']} (${GreatestDecrease['amount']})")
 print(
     f"Total: {TotalProfitLoss}")
 print(
     f"{ProfitLossList}")
 print(
-    f"Average Change: ${round(mean(ProfitLossList),2):,}")
+    f"Average Change: ${round(mean[ProfitLossList],2),:}")
 
 # write to a file
 with open(out_file, 'w') as outputFile:
