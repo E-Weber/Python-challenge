@@ -23,7 +23,14 @@ with open(csvpath) as csvfile:
         unique_candList = list(set(candList))
 # The percentage of votes each candidate won
 # The total number of votes each candidate won
-
+    votes1 = unique_candList[0]
+    votes1_count = candList.count(votes1)
+    votes2 = unique_candList[1]
+    votes2_count = candList.count(votes2)
+    votes3 = unique_candList[2]
+    votes3_count = candList.count(votes3)
+    votes4 = unique_candList[3]
+    votes4_count = candList.count(votes4)
 # while row[candidate] == [unique_candidateList]:
 
 # The winner of the election based on popular vote.
