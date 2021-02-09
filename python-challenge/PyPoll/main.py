@@ -20,8 +20,9 @@ with open(csvpath) as csvfile:
         TotalVotes = TotalVotes + 1
 
 # A complete list of candidates who received votes
-    candidateList.append(str(row[candidate]))
-    unique_candidateList = list(set(candidateList))
+        candidateList.append(str(row[candidate]))
+
+unique_candidateList = list(set(candidateList))
 # The percentage of votes each candidate won
 
 # The total number of votes each candidate won
@@ -30,7 +31,7 @@ with open(csvpath) as csvfile:
 
 # RESULTS
 print(f"Total Votes: {TotalVotes}")
-print(f"Candidates: {candidateList}")
+print(f"Candidates: {unique_candidateList}")
 
 # -------------------------
 # Total Votes: 3521001
