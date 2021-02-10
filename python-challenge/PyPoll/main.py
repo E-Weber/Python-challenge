@@ -38,7 +38,16 @@ with open(csvpath) as csvfile:
     votes4_p = round((votes4_count / TotalVotes) * 100)
 
 # The winner of the election based on popular vote.
-
+    maxList = [votes1_p, votes2_p, votes3_p, votes4_p]
+    win = max(maxList)
+    if win == votes1_p:
+        winner = votes1
+    elif win == votes2_p:
+        winner = votes2
+    elif win == votes3_p:
+        winner = votes3
+    elif win == votes4_p:
+        winner = votes4
 # RESULTS
 print(f"Total Votes: {TotalVotes}")
 print(f"{votes1}: {votes1_p}.000%({votes1_count})")
