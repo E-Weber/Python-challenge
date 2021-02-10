@@ -1,1 +1,1 @@
-Financial Analysis-------------Total Months: 86
+Financial Analysis-------------Total Months: {TotalMonths}Total:{TotalProfitLoss}Average Change: {LastChange}
