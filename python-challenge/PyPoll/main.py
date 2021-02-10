@@ -54,7 +54,7 @@ print(f"{votes1}: {votes1_p}.000%({votes1_count})")
 print(f"{votes2}: {votes2_p}.000%({votes2_count})")
 print(f"{votes3}: {votes3_p}.000%({votes3_count})")
 print(f"{votes4}: {votes4_p}.000%({votes4_count})")
-
+print(f"Winner: {winner}")
 # -------------------------
 # Total Votes: 3521001
 # -------------------------
