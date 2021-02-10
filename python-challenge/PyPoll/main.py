@@ -53,20 +53,22 @@ with open(csvpath) as csvfile:
 print("--------------------------")
 print(f"Total Votes: {TotalVotes}")
 print("--------------------------")
-print(f"{votes1}: {votes1_p}.000%({votes1_count})")
-print(f"{votes2}: {votes2_p}.000%({votes2_count})")
-print(f"{votes3}: {votes3_p}.000%({votes3_count})")
-print(f"{votes4}: {votes4_p}.000%({votes4_count})")
+print(f"{votes1}: {votes1_p}.00%({votes1_count})")
+print(f"{votes2}: {votes2_p}.00%({votes2_count})")
+print(f"{votes3}: {votes3_p}.00%({votes3_count})")
+print(f"{votes4}: {votes4_p}.00%({votes4_count})")
 print("--------------------------")
 print(f"Winner: {winner}")
 
 # Write outfile
 with open(out_file, 'w') as outputFile:
+    outputFile.write("-------------------------")
     outputFile.write("Total Votes: {TotalVotes}")
     outputFile.write("-------------------------")
-    outputFile.write("Total Months: {TotalMonths}")
-    outputFile.write("Total:{TotalProfitLoss}")
-    outputFile.write("Average Change: {LastChange}")
+    outputFile.write(f"{votes1}: {votes1_p}.00%({votes1_count})")
+    outputFile.write(f"{votes2}: {votes2_p}.00%({votes2_count})")
+    outputFile.write(f"{votes3}: {votes3_p}.00%({votes3_count})")
+    outputFile.write(f"{votes4}: {votes4_p}.00%({votes4_count})")
 # -------------------------
 # Total Votes: 3521001
 # -------------------------
