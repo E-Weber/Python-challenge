@@ -68,9 +68,9 @@ print(f"Average Change: {LastChange}")
 with open(out_file, 'w') as outputFile:
     outputFile.write("Financial Analysis")
     outputFile.write("-------------")
-    outputFile.write("Total Months: {TotalMonths}")
-    outputFile.write("Total:{TotalProfitLoss}")
-    outputFile.write("Average Change: {LastChange}")
+    outputFile.write(f"Total Months: {TotalMonths}")
+    outputFile.write(f"Total: ${int(TotalProfitLoss)}")
+    outputFile.write(f"Average Change: {LastChange}")
 #  Results Below
 #  ----------------------------
 #  Total Months: 86
